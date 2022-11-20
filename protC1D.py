@@ -7,11 +7,11 @@ class ProtC1D(nn.Module):
     def __init__(self,length):
         super().__init__()
         self.protein_sequence = nn.Sequential(
-            nn.Conv1d(length, 64),
+            nn.Conv1d(length, 64,kernel_size=8, stride=1),
             nn.ReLU(),
             nn.MaxPool1d(2),
             nn.Dropout(),
-            nn.Conv1d(32, 64),
+            nn.Conv1d(32, 64,kernel_size=5, stride=1),
             nn.ReLU(),
             nn.MaxPool1d(2),
             nn.Dropout(),
