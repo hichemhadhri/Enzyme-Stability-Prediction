@@ -1,0 +1,37 @@
+Articles ML : 
+
+
+
+https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0138022
+
+Articles : https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction/discussion/354435
+
+There are also other publicly available methods which can predict protein stabilities such as ESM, EVE and Rosetta etc., without using the provided training set. These methods may also be used as part of the competition. 
+
+Tuto : https://cnvrg.io/protein-sequencing/
+https://torchprotein.ai/get_started
+
+Machine learning in protein structure prediction: https://www.sciencedirect.com/science/article/pii/S1367593121000508
+
+Machine learning models for protein engineering: https://pubs.acs.org/doi/10.1021/acs.jcim.0c00073
+
+Exemples pour proeines : https://stephanheijl.com/protein_sequence_ml.html
+
+We also have the 3D structure of the enzyme  how to use it ? integrate folding in train too ?
+
+Example CNN with proteins : https://www.researchgate.net/figure/The-architecture-of-1D-deep-convolutional-neural-network-for-fold-classification-The_fig1_327213391
+
+Methodology; https://medium.com/@rwalroth89/neural-nets-for-protein-classification-1b122cde5b6f
+
+Embedding using protein structure : https://openreview.net/pdf?id=SygLehCqtm
+
+Protein stability : https://www.google.fr/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiExt726M77AhUfTKQEHX08DJ4QFnoECA8QAQ&url=https%3A%2F%2Fdigital.lib.washington.edu%2Fresearchworks%2Fbitstream%2Fhandle%2F1773%2F44090%2FXiao_washington_0250O_20291.pdf%3Fsequence%3D1&usg=AOvVaw2Hz4D21PFRpeacpvLkk_-r
+
+Explications embedding : https://www.featureform.com/post/the-definitive-guide-to-embeddings
+
+
+Test data set: protein totally different from train. A single mutation in test data set may change little environment around that position. We have to catch that error and rank it. That will define the contribution of that mutation in this protein.
+
+Using Graph neural networks : https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction/discussion/355892
+
+
