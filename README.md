@@ -32,25 +32,25 @@ This folder contains all the csv files that were given or added by us:
 
 ### `models`
 
-#### 'protC1D.py' 
+#### `protC1D.py`
 
 This is the main model we used.
 
 ---
 
-### 'notebooks/experiments'
+### `notebooks/experiments`
 
-#### '1-Conv1d_OneChannel.ipynb'
-#### '1-Conv1d_OneHot-Loss.ipynb'
-#### '2-One_hot_encoding.ipynb'
-#### '3-Less_Channels.ipynb'
-#### '4-Test_Model_DeepSF.ipynb'
-#### '5-AlexNet.ipynb'
-#### '7-ProtBert.ipynb'
-#### '8-ProtBert+LGBM.ipynb'
+##### '1-Conv1d_OneChannel.ipynb'
+##### '1-Conv1d_OneHot-Loss.ipynb'
+##### '2-One_hot_encoding.ipynb'
+##### '3-Less_Channels.ipynb'
+##### '4-Test_Model_DeepSF.ipynb'
+##### '5-AlexNet.ipynb'
+##### '7-ProtBert.ipynb'
+##### '8-ProtBert+LGBM.ipynb'
 
-#### 'proteins_groups.ipynb'
-#### 'helpers.py'
+##### 'proteins_groups.ipynb'
+##### 'helpers.py'
 
 --- 
 
