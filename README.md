@@ -1,42 +1,56 @@
 # EPFL CS-433: PROJECT 2: Enzyme-Stability-Prediction
 
 
-a kaggle competition, to develop models that can predict the ranking of protein thermostability (as measured by melting point, tm) after single-point amino acid mutation and deletion.
+We participated to a Kaggle Competition, asking to develop models that can predict the ranking of protein thermostability (as measured by melting point, tm) after single-point amino acid mutation and deletion.
 
 
 The work was mainly done in 2 ways:
-
 Preprocessing can include different combinations of the following methods: (1)  (2)  (3) 
-
 Then CNN
+The entire project uses different python libraries: numpy, pandas, scipy, 
 
-The entire project uses different python libraries
-
-Please add the files train.csv and test.csv directly in the repository.
 
 ## Code description 
 
 ### `run.py`
 
+This file produces the same file used to obtain the team's best score on the Kaggle competition. It is self-contained and only requires access to the data and files described below.
 
 ---
 
-### `implementations.py`
+### `data`
 
-This file contains the required functions as stated in the project outline pdf file.
+This folder contains all the csv files that were given or added by us:
+* clean_train_data.csv
+* test.csv
+* train.csv
+* train_updates_20220929.csv
+* train_v1.csv
 
-* *mean_squared_error_gd, mean_squared_error_sgd, least_squares, ridge_regression*
-* *logistic_regression, reg_logistic_regression*
-
-As well as auxiliary functions supporting the ones cited above.
-
-* *compute_mse_loss, compute_mse_gradient, batch_iter, compute_stoch_mse_gradient, sigmoid, calculate_logistic_loss, calculate_logistic_gradient*
-* *calculate_stoch_logistic_gradient, stoch_reg_logistic_regression*
 
 ---
 
-### `data_processing.py`
+### `models`
 
+#### 'protC1D.py' 
+
+This is the main model we used.
+
+---
+
+### 'notebooks/experiments'
+
+#### '1-Conv1d_OneChannel.ipynb'
+#### '1-Conv1d_OneHot-Loss.ipynb'
+#### '2-One_hot_encoding.ipynb'
+#### '3-Less_Channels.ipynb'
+#### '4-Test_Model_DeepSF.ipynb'
+#### '5-AlexNet.ipynb'
+#### '7-ProtBert.ipynb'
+#### '8-ProtBert+LGBM.ipynb'
+
+#### 'proteins_groups.ipynb'
+#### 'helpers.py'
 
 --- 
 
