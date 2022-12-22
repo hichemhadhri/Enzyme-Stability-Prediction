@@ -38,6 +38,9 @@ Each experiment is in a self-contained notebook and can be run to reproduce the 
 <br> The experiments can be divided into 3 different groups
 
 <li>
+    <ul>1. Convolutional Neural Networks</ul>
+    <ul>2. Data Grouping </ul>
+    <ul>3. Language model : RosLab/ProtBert</ul>
 
 </li>
 
@@ -62,38 +65,33 @@ For each of these experiments we use different CNN architectures and compare wit
 Further optimization of our designed model 
 
 
-##### '7-ProtBert.ipynb'
-##### '8-ProtBert+LGBM.ipynb'
+##### '7-Effect_mutations_alone.ipynb'
+##### '8-Effect_mutations-xgboostl.ipynb'
 
-##### 'proteins_groups.ipynb'
+##### '9-Effect_mutations_and_seqs.ipynb'
+
+##### '10-Protbert.ipynb' 
+use protBert to predict thermostability of a sequence
+
+
+##### '11-Protbert_Mutation.ipynb'
+use pairs of mutant and wild type sequences to train protBert and predict difeerence in thermostability
+
+<br>
+**Note:** Both notebooks have been ran on google Colab  and their results are saved in the `experiments/models/protbert` folder
+
 ##### 'helpers.py'
+contain common functions used in the experiments
 
 --- 
 
-### `our_progress_run.ipynb`
 
-A notebook outlining the step-by-step progress of the model (each stage adds something on top of the previous version):
-
-1. logistic regression 
-2. logistic regression + normalized 
-3. logistic regression + normalized + w0
-4. logistic regression + normalized smart + w0
-5. logistic regression + normalized smart + w0 + high correlation features removed
+#### Note :  The plots, logs , and saved models  are in their respective subfolders in `experiments`
+### `notebooks/experiments/data_exploration`
+a small discovery notebook to explore the data and understand it better
 
 
----
-### `seven_methods.py`
-
-This file allows to calculate the accuracy for seven methods of regression and classification coded for this project.
-
-* A. Gradient Descent with MSE
-* B. Stochastic Gradient Descent with MSE
-* C. Least Squares 
-* D. Ridge Regression with cross validation to find best lambda
-* E. Logistic Regression with cross validation to find best lambda
-* F. Regularized Logistic Regression
-* G. K-nearest neighbors classification
-
+# Requirements
 
 
 ---
