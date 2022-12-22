@@ -1,3 +1,8 @@
+import torch 
+import scipy
+from scipy.stats import spearmanr
+import numpy as np
+
 
 def Scoring(df_te, df_predicted):
     df = {
@@ -30,7 +35,7 @@ def train_epoch(model, optimizer, criterion, train_loader, epoch):
         
         optimizer.step()
         # calculate Spearman's rank correlation coefficient
-        p, _ = spearmanr(target.cpu().detach().numpy(), output.squeeze().cpu().detach().numpy())
+        p, _ = scipy.stats.spearmanr(target.cpu().detach().numpy(), output.squeeze().cpu().detach().numpy())
         rho += p
     
     train_loss /= len(train_loader)
@@ -42,7 +47,7 @@ def train_epoch(model, optimizer, criterion, train_loader, epoch):
     return train_loss , rho
 
 
-    def test_epoch(model, criterion, test_loader):
+def test_epoch(model, criterion, test_loader):
     model = model.eval()
     test_loss = 0
     rho = 0
@@ -56,7 +61,7 @@ def train_epoch(model, optimizer, criterion, train_loader, epoch):
             test_loss += criterion(output.squeeze(), target).item()  # sum up batch loss
             # calculate pearson correlation 
             #pearson, rmse, auc = Scoring(target.cpu().detach(), output.cpu().detach())
-            p, _ =  spearmanr(target.cpu().detach().numpy(), output.cpu().detach().numpy())
+            p, _ =  scipy.stats.spearmanr(target.cpu().detach().numpy(), output.cpu().detach().numpy())
             rho += p
             
 
@@ -70,7 +75,7 @@ def train_epoch(model, optimizer, criterion, train_loader, epoch):
 
 
 
-    def split_train_test(df,frac,seed=24,verbose=True)
+def split_train_test(df,frac,seed=24,verbose=True):
     train_df = df.sample(frac=0.8,random_state=24)
     val_df = df.drop(train_df.index)
 
@@ -81,3 +86,37 @@ def train_epoch(model, optimizer, criterion, train_loader, epoch):
         print('train_df has shape : {} \n test_df has shape :  {}'.format(train_df.shape,val_df.shape))
 
     return train_df , val_df
+
+
+
+def predict(model,test_loader):
+    model = model.eval()
+    preds = []
+    with torch.no_grad():
+        for seq, target,num in test_loader:
+            if torch.cuda.is_available():
+                seq = seq.cuda()
+                target = target.cuda()
+                num = num.cuda()
+            output = model(seq,num)
+            preds.append(output.to('cpu').numpy())
+            
+    output = np.concatenate(preds)
+    return output
+
+def encode_seq(sequence, max_length):
+    alphabet = ['A', 'C', 'D', 'E', 'F', 'G','H', 'I', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y'] # aa letters
+    char_to_int = dict((c, i) for i, c in enumerate(alphabet)) 
+    integer_encoded = [char_to_int[char] for char in sequence] #each character becomes int
+    onehot_encoded = list()
+    for value in integer_encoded:
+        letter = [0 for _ in range(len(alphabet))] #0 for all letters
+        letter[value] = 1 #modify the column corresponding to the letter to 1
+        onehot_encoded.append(letter) #put in the array (1 letter = 1 array of 20 columns)
+    
+    ar =   np.transpose(np.array(onehot_encoded)) #Transpose to have the right shape for the CNN
+    zeros = np.zeros([len(alphabet),max_length - len(integer_encoded)] )
+    onehot_encoded = np.concatenate((ar, zeros), axis = 1) #zero padding
+
+
+    return onehot_encoded #we have all arrays, corresponding to the whole sequence
