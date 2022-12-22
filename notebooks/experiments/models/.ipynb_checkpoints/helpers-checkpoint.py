@@ -5,6 +5,12 @@ import numpy as np
 
 
 def Scoring(df_te, df_predicted):
+    
+    """
+    Calculate different scores
+    Input: prediction and real labels
+    Output: Pearon's correlation coefficient, RMSE and AUC
+    """
     df = {
     "true": df_te['tm'],
     "predicted": df_predicted['tm']
@@ -18,6 +24,16 @@ def Scoring(df_te, df_predicted):
 
 
 def train_epoch(model, optimizer, criterion, train_loader, epoch):
+    """
+    Function used to train the model
+    Input: Model,
+    Optimizer (Adam in the notebooks),
+    criterion (MSE loss in notebook), 
+    train_loader : created with pytorch dataloader, from a dataset created with EnzymeDataset
+    epoch: number of epoch 
+    
+    Output : loss and Spearman's coefficient
+    """
     model.train()
     rho = 0 
     train_loss = 0 
@@ -48,6 +64,17 @@ def train_epoch(model, optimizer, criterion, train_loader, epoch):
 
 
 def test_epoch(model, criterion, test_loader):
+    """
+    Function used to test the model, with the test data
+    Input: Model,
+   
+    criterion (MSE loss in notebook), 
+    test_loader : created with pytorch dataloader, from a dataset created with EnzymeDataset
+    
+    
+    Return: loss and Spearman's coefficient
+    """
+
     model = model.eval()
     test_loss = 0
     rho = 0
@@ -76,6 +103,15 @@ def test_epoch(model, criterion, test_loader):
 
 
 def split_train_test(df,frac,seed=24,verbose=True):
+    """split into train and test sets
+    Args: 
+    df : pandas dataframe
+    frac : scalar
+    verbose : boolean , print infos
+    
+    Returns
+    train_df , val_df : pandas dataframes
+    """
     train_df = df.sample(frac=0.8,random_state=24)
     val_df = df.drop(train_df.index)
 
@@ -90,6 +126,14 @@ def split_train_test(df,frac,seed=24,verbose=True):
 
 
 def predict(model,test_loader):
+    """infer model predictions for submission
+    Args: 
+    model : pyotrch model
+    test_loader : pytorch data loader
+    
+    Returns
+    output : numpy array, predictions
+    """
     model = model.eval()
     preds = []
     with torch.no_grad():
@@ -105,6 +149,11 @@ def predict(model,test_loader):
     return output
 
 def encode_seq(sequence, max_length):
+    """
+    Encode the amino acid sequence with one-hot-encoding
+    Input: sequence and max length of the sequence
+    Output:  encoded sequence
+    """
     alphabet = ['A', 'C', 'D', 'E', 'F', 'G','H', 'I', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y'] # aa letters
     char_to_int = dict((c, i) for i, c in enumerate(alphabet)) 
     integer_encoded = [char_to_int[char] for char in sequence] #each character becomes int
@@ -120,3 +169,4 @@ def encode_seq(sequence, max_length):
 
 
     return onehot_encoded #we have all arrays, corresponding to the whole sequence
+

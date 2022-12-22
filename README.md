@@ -1,24 +1,16 @@
 # EPFL CS-433: PROJECT 2: Enzyme-Stability-Prediction
 
 
-We participated in  a Kaggle Competition, asking to develop models that can predict the ranking of protein thermostability (as measured by melting point, tm) after single-point amino acid mutation and deletion.
+We participated in a Kaggle Competition, asking to develop models that can predict the ranking of protein thermostability (as measured by melting point, tm) after single-point amino acid mutation and deletion.
 
 Link to the competition : https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction/
 
 
-The work was mainly done in 2 ways:
-Preprocessing can include different combinations of the following methods: (1)  (2)  (3) 
-Then CNN
-The entire project uses different python libraries: numpy, pandas, scipy, 
+
 
 
 ## Code description 
 
-### `run.py`
-
-This file produces the same file used to obtain the team's best score on the Kaggle competition. It is self-contained and only requires access to the data and files described below.
-
----
 
 ### `data`
 
@@ -37,9 +29,14 @@ Each experiment is in a self-contained notebook and can be run to reproduce the 
 
 <br> The experiments can be divided into 3 different groups
 
-<li>
 
-</li>
+<ol>
+  <li>Convolutional Neural Networks experiments</li>
+  <li>Data engineeering</li>
+  <li>Language model : Protbert</li>
+</ol>
+
+
 
 
 ### `notebooks/experiments`
@@ -62,37 +59,20 @@ For each of these experiments we use different CNN architectures and compare wit
 Further optimization of our designed model 
 
 
-##### '7-ProtBert.ipynb'
-##### '8-ProtBert+LGBM.ipynb'
+##### '10-ProtBert_Mutation.ipynb'
+Pretrained Language model prediction on protein stability.
+ProtBert is already pretrained on millions of protein sequences, we adapt it to our problem
+
 
 ##### 'proteins_groups.ipynb'
 ##### 'helpers.py'
 
---- 
+### `notebooks/exploratory`
+2 notebooks for data exploration and training data correction
 
-### `our_progress_run.ipynb`
+### `ressources`
 
-A notebook outlining the step-by-step progress of the model (each stage adds something on top of the previous version):
-
-1. logistic regression 
-2. logistic regression + normalized 
-3. logistic regression + normalized + w0
-4. logistic regression + normalized smart + w0
-5. logistic regression + normalized smart + w0 + high correlation features removed
-
-
----
-### `seven_methods.py`
-
-This file allows to calculate the accuracy for seven methods of regression and classification coded for this project.
-
-* A. Gradient Descent with MSE
-* B. Stochastic Gradient Descent with MSE
-* C. Least Squares 
-* D. Ridge Regression with cross validation to find best lambda
-* E. Logistic Regression with cross validation to find best lambda
-* F. Regularized Logistic Regression
-* G. K-nearest neighbors classification
+ressources (articles, papers) that inspired our methods
 
 
 
