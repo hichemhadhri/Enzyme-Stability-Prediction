@@ -20,6 +20,7 @@ This folder contains all the csv files that were given or added by us:
 
 
 ---
+
 ## `Experiments`
 Each experiment is in a self-contained notebook and can be run to reproduce the same results as in the report.
 
@@ -29,7 +30,6 @@ Each experiment is in a self-contained notebook and can be run to reproduce the 
     <ul> 1. Convolutional Neural Networks</ul>
     <ul> 2. Data Grouping </ul>
     <ul> 3. Language model : RosLab/ProtBert</ul>
-
 </li>
 
 
@@ -94,7 +94,6 @@ matplotlib
 seaborn
 xgboost
 tqdm
-
 
 
 
