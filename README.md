@@ -14,10 +14,6 @@ The entire project uses different python libraries: numpy, pandas, scipy,
 
 ## Code description 
 
-### `run.py`
-
-This file produces the same file used to obtain the team's best score on the Kaggle competition. It is self-contained and only requires access to the data and files described below.
-
 ---
 
 ### `data`
@@ -47,51 +43,67 @@ Each experiment is in a self-contained notebook and can be run to reproduce the 
 
 ### `notebooks/experiments`
 
-##### '1-Conv1d_OneChannel.ipynb' 
+##### `1-Conv1d_OneChannel.ipynb'`
 
 CNN on Amino Acid Sequence (AAS) using integer encoding on the 20 amino acid letters producing one channel array for each sequence
 
-##### '2-One_hot_encoding.ipynb'
+##### `2-One_hot_encoding.ipynb`
 CNN on Amino Acid Sequence (AAS) using one-hot encoding on the 20 amino acid letters producing 20  channels array for each sequence
-##### '3-Less_Channels.ipynb'
+##### `3-Less_Channels.ipynb`
 Grouping  amino acids with similar properties into 4 groups and producing a 4- channel array for each sequence 
 
 
-##### '4-Test_Model_DeepSF.ipynb'
-##### '5-AlexNet.ipynb'
+##### `4-Test_Model_DeepSF.ipynb`
+##### `5-AlexNet.ipynb`
 For each of these experiments we use different CNN architectures and compare with our designed model
 
-##### '6-CNN_optimization.ipynb'
+##### `6-CNN_optimization.ipynb`
 Further optimization of our designed model 
 
 
-##### '7-Effect_mutations_alone.ipynb'
-##### '8-Effect_mutations-xgboostl.ipynb'
+##### `7-Effect_mutations_alone.ipynb`
+?
+##### `8-Effect_mutations-xgboostl.ipynb`
+?
 
-##### '9-Effect_mutations_and_seqs.ipynb'
+##### `9-Effect_mutations_and_seqs.ipynb`
+?
 
-##### '10-Protbert.ipynb' 
+##### `10-Protbert.ipynb`
 use protBert to predict thermostability of a sequence
 
 
-##### '11-Protbert_Mutation.ipynb'
+##### `11-Protbert_Mutation.ipynb`
 use pairs of mutant and wild type sequences to train protBert and predict difeerence in thermostability
 
 <br>
 **Note:** Both notebooks have been ran on google Colab  and their results are saved in the `experiments/models/protbert` folder
 
-##### 'helpers.py'
+##### `helpers.py`
 contain common functions used in the experiments
 
 --- 
 
 
-#### Note :  The plots, logs , and saved models  are in their respective subfolders in `experiments`
+#### Note :  The plots, logs , and saved models  are in their respective sub folders in `experiments`
 ### `notebooks/experiments/data_exploration`
 a small discovery notebook to explore the data and understand it better
 
 
 # Requirements
+pytorch 
+transformers 
+tokenizers
+numpy
+pandas
+scipy
+sklearn
+matplotlib
+seaborn
+xgboost
+tqdm
+
+
 
 
 ---
