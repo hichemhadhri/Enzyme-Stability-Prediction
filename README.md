@@ -54,20 +54,26 @@ Grouping  amino acids with similar properties into 4 groups and producing a 4- c
 
 
 ##### `4-Test_Model_DeepSF.ipynb`
+
+Use a model inspired by DeepSF, with 20 channels
+
 ##### `5-AlexNet.ipynb`
-For each of these experiments we use different CNN architectures and compare with our designed model
+Model inspired by AlexNetwork
 
 ##### `6-CNN_optimization.ipynb`
 Further optimization of our designed model 
 
 
 ##### `7-Effect_mutations_alone.ipynb`
-?
+
+Use properties found by proteins grouping. Each datapoint of the train set consists of the comparision between the wildtype and a mutated protein. The difference in temperature is used as label. Those results are not combined with the protein's sequence here, and we only use a MLP.
 ##### `8-Effect_mutations-xgboostl.ipynb`
-?
+
+As the 7th model, we only use the data on the mutations, here with another model (XGBoost)
 
 ##### `9-Effect_mutations_and_seqs.ipynb`
-?
+
+Combine the data about the proteins to a CNN trained on the sequences
 
 ##### `10-Protbert.ipynb`
 use protBert to predict thermostability of a sequence
