@@ -1,15 +1,8 @@
 # EPFL CS-433: PROJECT 2: Enzyme-Stability-Prediction
 
-
 We participated in  a Kaggle Competition, asking to develop models that can predict the ranking of protein thermostability (as measured by melting point, tm) after single-point amino acid mutation and deletion.
 
 Link to the competition : https://www.kaggle.com/competitions/novozymes-enzyme-stability-prediction/
-
-
-The work was mainly done in 2 ways:
-Preprocessing can include different combinations of the following methods: (1)  (2)  (3) 
-Then CNN
-The entire project uses different python libraries: numpy, pandas, scipy, 
 
 
 ## Code description 
@@ -26,7 +19,6 @@ This folder contains all the csv files that were given or added by us:
 * train_v1.csv (result of correcting dataset)
 
 
-
 ---
 ## `Experiments`
 Each experiment is in a self-contained notebook and can be run to reproduce the same results as in the report.
@@ -34,9 +26,9 @@ Each experiment is in a self-contained notebook and can be run to reproduce the 
 <br> The experiments can be divided into 3 different groups
 
 <li>
-    <ul>1. Convolutional Neural Networks</ul>
-    <ul>2. Data Grouping </ul>
-    <ul>3. Language model : RosLab/ProtBert</ul>
+    <ul> 1. Convolutional Neural Networks</ul>
+    <ul> 2. Data Grouping </ul>
+    <ul> 3. Language model : RosLab/ProtBert</ul>
 
 </li>
 
@@ -44,18 +36,16 @@ Each experiment is in a self-contained notebook and can be run to reproduce the 
 ### `notebooks/experiments`
 
 ##### `1-Conv1d_OneChannel.ipynb'`
-
 CNN on Amino Acid Sequence (AAS) using integer encoding on the 20 amino acid letters producing one channel array for each sequence
 
 ##### `2-One_hot_encoding.ipynb`
 CNN on Amino Acid Sequence (AAS) using one-hot encoding on the 20 amino acid letters producing 20  channels array for each sequence
-##### `3-Less_Channels.ipynb`
-Grouping  amino acids with similar properties into 4 groups and producing a 4- channel array for each sequence 
 
+##### `3-Less_Channels.ipynb`
+Grouping amino acids with similar properties into 4 groups and producing a 4- channel array for each sequence 
 
 ##### `4-Test_Model_DeepSF.ipynb`
-
-Use a model inspired by DeepSF, with 20 channels
+Uses a model inspired by DeepSF, with 20 channels
 
 ##### `5-AlexNet.ipynb`
 Model inspired by AlexNetwork
@@ -63,30 +53,26 @@ Model inspired by AlexNetwork
 ##### `6-CNN_optimization.ipynb`
 Further optimization of our designed model 
 
-
 ##### `7-Effect_mutations_alone.ipynb`
+Uses properties found by proteins grouping. Each datapoint of the train set consists of the comparision between the wildtype and a mutated protein. The difference in temperature is used as label. Those results are not combined with the protein's sequence here, and we only use a MLP.
 
-Use properties found by proteins grouping. Each datapoint of the train set consists of the comparision between the wildtype and a mutated protein. The difference in temperature is used as label. Those results are not combined with the protein's sequence here, and we only use a MLP.
 ##### `8-Effect_mutations-xgboostl.ipynb`
-
 As the 7th model, we only use the data on the mutations, here with another model (XGBoost)
 
 ##### `9-Effect_mutations_and_seqs.ipynb`
-
-Combine the data about the proteins to a CNN trained on the sequences
+Combines the data about the proteins to a CNN trained on the sequences
 
 ##### `10-Protbert.ipynb`
-use protBert to predict thermostability of a sequence
-
+uses protBert to predict thermostability of a sequence
 
 ##### `11-Protbert_Mutation.ipynb`
-use pairs of mutant and wild type sequences to train protBert and predict difeerence in thermostability
+uses pairs of mutant and wild type sequences to train protBert and predict difeerence in thermostability
 
 <br>
 **Note:** Both notebooks have been ran on google Colab  and their results are saved in the `experiments/models/protbert` folder
 
 ##### `helpers.py`
-contain common functions used in the experiments
+contains common functions used in the experiments
 
 --- 
 
@@ -96,7 +82,7 @@ contain common functions used in the experiments
 a small discovery notebook to explore the data and understand it better
 
 
-# Requirements
+# Requirements 
 pytorch 
 transformers 
 tokenizers
